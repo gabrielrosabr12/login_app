@@ -1,0 +1,55 @@
+<app-default-login
+title="Cadastre-se já"
+primaryBtnText="Cadastrar-se"
+secondaryBtnText="Possui conta? Logue"
+(submit)="submit()"
+(navigate)="navigate()"
+[disablePrimaryBtn]="!registerForm.valid"
+>
+<app-primary-input
+formControlName="username"
+type="text"
+placeholder="marcinhoso_nunes"
+inputId="username"
+label="Nome de usuario"
+>
+<img src="/login/user.png" width="24px" height="24px" class="icon">
+</app-primary-input>
+<app-primary-input
+formControlName="email"
+type="email"
+placeholder="marcinhodoamparo@naosei.com"
+inputId="email"
+label="Email"
+>
+<img src="/login/email.png" width="24px" height="24px" class="icon">
+</app-primary-input>
+<app-primary-input
+formControlName="password"
+type="password"
+placeholder="Digite sua senha"
+inputId="password"
+label="Senha"
+>
+<img src="/login/padlock.png" width="24px" height="24px" class="icon">
+</app-primary-input>
+<app-primary-input
+formControlName="confirm_password"
+type="password"
+placeholder="Repita a senha"
+inputId="confirm_password"
+label="Repita a senha"
+>
+<img src="/login/padlock.png" width="24px" height="24px" class="icon">
+</app-primary-input>
+<app-primary-input
+formControlName="registration"
+type="text"
+placeholder="00000"
+inputId="registration"
+label="Matricula"
+>
+<img src="/login/registration.png" width="24px" height="24px" class="icon">
+</app-primary-input>
+
+</app-default-login>

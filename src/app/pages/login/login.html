@@ -1,0 +1,31 @@
+<app-default-login
+title="Logue na sua conta"
+primaryBtnText="Entrar agora"
+secondaryBtnText="Cadastrar agora"
+(submit)="submit()"
+(navigate)="navigate()"
+[disablePrimaryBtn]="!loginForm.valid"
+>
+<form [formGroup]="loginForm">
+<app-primary-input
+formControlName="email" inputName="email"
+type="email"
+placeholder="sineidi.josefino@email.com"
+inputId="email"
+label="Email"
+>
+<img src="login/email.png" width="24px" height="24px" class="icon">
+</app-primary-input>
+
+<app-primary-input
+formControlName="password"
+type="password"
+placeholder="Digite sua senha"
+inputId="password"
+label="Senha"
+>
+
+<img src="login/padlock.png" width="24px" height="24px" class="icon">
+</app-primary-input>
+</form>
+</app-default-login>
