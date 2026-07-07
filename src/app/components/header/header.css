@@ -1,0 +1,103 @@
+  @import '../../../styles/variables.css';
+
+  main {
+    header {
+      display: flex;
+      flex-direction: row;
+      align-items:stretch;
+      /* justify-content: space-between; removido para focar no flex proporcional */
+      background-image: linear-gradient(to left, var(--primary-color),var(--primary-color-soft));
+      position: sticky;
+      height: 45px;
+      width: 100%;
+      transition: all 2s ease-in-out;
+
+      &::selection{
+          background-color: rgb(0, 140, 255);
+          color:white;
+        }
+
+      /* 1. Div da Esquerda (Monitoramento) */
+      .top-bar.header {
+        flex: 1; /* Ocupa todo o espaço restante do lado esquerdo */
+        display: flex;
+        justify-content:flex-start;
+        padding-left: 20px; /* Espaço para não grudar na tela */
+        align-items: center;
+        border-radius: 20px;
+
+
+      }
+
+      h2 {
+        color: var(--secondary-color);
+        padding: 20px;
+        cursor: pointer;
+        margin: 0;
+        border: 1px solid transparent; /* Ocupa o espaço da borda, mas fica invisível */
+        transition: all 2s;
+
+        &:hover{
+          font-size: 30px;
+        }
+
+
+      }
+
+      /* 2. Div do Meio (Ações) */
+      .top-bar.actions {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Garante que os botões fiquem no centro dessa div */
+        flex-direction: row;
+        gap: 20px;
+        height: 100%;
+
+        button {
+          text-transform: uppercase;
+          background-color: transparent;
+          border: none;
+          width: 200px;
+          height: 80%;
+          cursor: pointer;
+          border-radius: 8px;
+          font-weight: 400;
+          color: var(--secondary-color);
+
+          &:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+          }
+        }
+      }
+
+      .top-bar.logout button{
+        border:none;
+        background-color: var(--secondary-color);
+        width: 100px;
+        height: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 8px;
+        cursor:pointer;
+
+        &:hover{
+          background-color: var(--primary-color-soft);
+          color: var(--secondary-color);
+        }
+      }
+
+      /* 3. Div da Direita (Logout) */
+      > div:last-child {
+        flex: 1; /* Equilibra exatamente o mesmo peso da div da esquerda */
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 20px; /* Espaço para não grudar na tela */
+        height: 100%;
+      }
+    }
+  }

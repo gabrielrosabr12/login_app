@@ -6,6 +6,7 @@ secondaryBtnText="Possui conta? Logue"
 (navigate)="navigate()"
 [disablePrimaryBtn]="!registerForm.valid"
 >
+<form>
 <app-primary-input
 formControlName="username"
 type="text"
@@ -51,5 +52,5 @@ label="Matricula"
 >
 <img src="/login/registration.png" width="24px" height="24px" class="icon">
 </app-primary-input>
-
+</form>
 </app-default-login>

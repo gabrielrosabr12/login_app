@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { DefaultLogin } from "../../components/default-login/default-login";
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { PrimaryInput } from "../../components/primary-input/primary-input";
+import { Router } from '@angular/router';
 
 interface RegisterForm{
   username: FormControl,
@@ -18,6 +19,7 @@ interface RegisterForm{
   styleUrl: './signup.css',
 })
 export class Signup {
+  router:Router = inject(Router);
   registerForm!: FormGroup<RegisterForm>;
 
   constructor(){
@@ -34,7 +36,7 @@ export class Signup {
   submit(){};
 
   navigate(){
-
+    this.router.navigate(['login'])
   };
 
 

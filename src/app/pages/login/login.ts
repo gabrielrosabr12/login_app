@@ -3,6 +3,7 @@ import {DefaultLogin} from '../../components/default-login/default-login';
 import { PrimaryInput } from "../../components/primary-input/primary-input";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthUserService } from '../../services/auth-user-service';
+import { Router } from '@angular/router';
 
 interface LoginForm {
   email: FormControl,
@@ -18,13 +19,14 @@ interface LoginForm {
 })
 export class Login {
   loginForm!: FormGroup<LoginForm>;
+  router:Router = inject(Router);
 
   authService:AuthUserService = inject(AuthUserService);
 
   constructor(){
     this.loginForm = new FormGroup({
-      email: new FormControl('',[Validators.required, Validators.email]),
-      password: new FormControl('',[Validators.required,Validators.pattern('[A-Z][a-z]{3}\.,\d{2}[a-z]{4}')])
+      email: new FormControl('',[Validators.required]),
+      password: new FormControl('',[Validators.required])
     })
   }
 
@@ -35,6 +37,8 @@ export class Login {
 
   navigate(){
     console.log("Navegando para a página de cadastro!");
+    this.router.navigate(['signup'])
+
   }
 
 }

@@ -5,6 +5,7 @@ main{
   align-items: center;
   justify-content: center;
   height: 100%;
+  overflow: hidden; /* Trava a rolagem da página inteira */
 
   section {
     height: 100%;
@@ -24,8 +25,11 @@ main{
     flex-grow: 0.3;
     padding: 0 35px;
     background-color: var(--background-color);
+    overflow-y: auto;
+    justify-content: flex-start;
 
     img{
+      margin-top: 24px;
       margin-bottom: 24px;
     }
 
@@ -42,6 +46,7 @@ main{
       justify-content: center;
       width: 100%;
       gap: 30px;
+      margin-bottom: 24px;
 
       .divider{
         display: flex;
