@@ -32,7 +32,23 @@ export class Login {
 
   submit(){
     console.log("Formulário enviado!");
-    console.log(this.authService.login(this.loginForm.value.email,this.loginForm.value.password));
+    // Obter os valores do formulário
+    const email = this.loginForm.value.email;
+    const password = this.loginForm.value.password;
+
+    if (email && password){
+      this.authService.login(email,password).subscribe({
+        next: ()=> {
+
+          console.log("Tokens recebidos. Redirecionando para home");
+          this.router.navigate(['home']);
+        },
+        error: ()=> {
+          alert("Email ou senha incorretos :");
+        }
+      });
+    }
+
   }
 
   navigate(){

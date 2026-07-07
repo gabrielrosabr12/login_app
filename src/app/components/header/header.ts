@@ -20,4 +20,8 @@ export class Header {
     this.router.navigate(['report_occurrence'])
   }
 
+  logout(){
+    this.router.navigate(['logout'])
+  }
+
 }

@@ -15,13 +15,17 @@ export class AuthUserService {
 
   login(username: string, password:string): any{
 
-    this.http.post<Token>(this.urlLogin,
+    return this.http.post<Token>(this.urlLogin,
       {
         username:username, password:password
       },).pipe(tap({
           next: (data: Token) => {
-            console.log('Login efetuado com sucesso!', data);
             // Salvar no localStorage
+
+            if( data.accessToken && data.refreshToken){
+              localStorage.setItem('acessToken',data.accessToken);
+              localStorage.setItem('refreshToken',data.refreshToken);
+            }
           },
           error: (error) => {
             console.error('Falha de autenticação', error);
