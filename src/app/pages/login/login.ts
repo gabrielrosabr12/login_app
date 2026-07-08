@@ -40,7 +40,7 @@ export class Login {
       this.authService.login(email,password).subscribe({
         next: ()=> {
 
-          console.log("Tokens recebidos. Redirecionando para home");
+          console.log("Tokens recebidos. Redirecionando para home", localStorage.getItem('acessToken'));
           this.router.navigate(['home']);
         },
         error: ()=> {
