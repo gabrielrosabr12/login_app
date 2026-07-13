@@ -6,6 +6,9 @@
     <div class="top-bar actions">
       <button (click)="cadastrarNota()">Cadastrar nota</button>
       <button>Visualizar notas</button>
+      @if (role.includes('ROLE_ADMIN')){
+        <button>Visualizar Usuarios</button>
+      }
     </div>
     <div class="top-bar logout">
 

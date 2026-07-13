@@ -1,5 +1,6 @@
-import { Component,Output,EventEmitter,inject } from '@angular/core';
+import { Component,Output,EventEmitter,inject,Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { RolesUserService } from '../../services/roles-user-service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,15 @@ import { Router } from '@angular/router';
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
-export class Header {
+export class Header implements OnInit {
   router:Router = inject(Router);
+  rolesService: RolesUserService = inject(RolesUserService);
+  @Input() role!:string[];
 
+
+  ngOnInit(): void {
+    this.role = this.rolesService.getRole();
+  }
 
   gotoHome(){
     this.router.navigate(['home'])

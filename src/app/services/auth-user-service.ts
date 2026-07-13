@@ -10,16 +10,29 @@ interface Token {
 @Service()
 export class AuthUserService {
   http : HttpClient = inject(HttpClient);
-  private readonly urlLogin: string = "http://localhost:8080/auth/login";
+  private readonly urlAuth: string = "http://localhost:8080/auth/";
 
   getToken(): string | null{
     return localStorage.getItem('acessToken');
   }
 
 
+  register(username:string,email:string, password:string,registration:string ){
+    console.log('registrando');
+    return this.http.post<any>(this.urlAuth+'register',{
+      username:username,email:email,password:password,registration:registration
+    }).pipe(tap({
+      next: (data: any) => {
+        console.log(data);
+      },
+      error: (error) => console.log(error)
+
+    }))
+  }
+
   login(username: string, password:string): any{
     console.log('tentando loginho');
-    return this.http.post<Token>(this.urlLogin,
+    return this.http.post<Token>(this.urlAuth+'login',
       {
         username:username, password:password
       },).pipe(tap({

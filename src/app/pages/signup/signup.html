@@ -6,7 +6,7 @@ secondaryBtnText="Possui conta? Logue"
 (navigate)="navigate()"
 [disablePrimaryBtn]="!registerForm.valid"
 >
-<form>
+<form [formGroup]="registerForm">
 <app-primary-input
 formControlName="username"
 type="text"
