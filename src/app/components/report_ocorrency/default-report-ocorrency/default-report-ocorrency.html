@@ -1,0 +1,44 @@
+<div class="attachment-component-wrapper">
+    <h4 class="component-label">Adicionar Anexos</h4>
+
+    <div class="drop-zone-container" (click)="fileInput.click()">
+      <div class="drop-zone-content">
+        <i class="icon-cloud-upload"></i> <p>Arraste e solte arquivos aqui ou <span class="browse-link">Navegar por arquivos</span></p>
+      </div>
+
+      <input
+        type="file"
+        multiple
+        #fileInput
+        (change)="onFilesSelected($event)"
+        style="display: none;"
+      />
+    </div>
+    @if (selectedFiles.length > 0) {
+    <div class="file-list-container">
+      @for (item of selectedFiles; track $index) {
+      <div class="file-item">
+
+        <div class="file-icon-type">
+          @if(item.type === 'application/pdf'){
+          <i class="icon-file-pdf"></i>
+          }
+          @if (item.type.startsWith('image/')){
+            <i class="icon-file-image"></i>
+          }
+
+        </div>
+
+        <div class="file-info">
+          <span class="file-name">{{ item.name }}</span>
+          <span class="file-size">{{ (item.size / (1024 * 1024)).toFixed(1) }} MB</span>
+        </div>
+
+        <button type="button" class="remove-file-btn" (click)="removeFile($index)">
+          <i class="icon-close"></i>
+          X
+        </button>
+
+      </div>
+      }
+    </div>}

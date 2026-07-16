@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-form',
@@ -12,4 +12,12 @@ export class Form {
   @Input() type!:string;
   value:string = "";
   @Input() placeholder!:string;
+
+  @Output() valueChange = new EventEmitter<string>();
+
+  onInput(event:Event){
+    const input = event.target as HTMLInputElement;
+    this.value =input.value;
+    this.valueChange.emit(this.value);
+  }
 }

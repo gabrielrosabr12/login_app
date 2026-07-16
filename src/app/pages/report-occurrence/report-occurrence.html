@@ -1,18 +1,18 @@
+
 <app-header></app-header>
 <main>
   <section class="form-section">
     <h2>Reportar ocorrencia</h2>
-    <form>
-      <app-form label="Titulo da nota"
-      placeholder="senha"></app-form>
+    <form (submit)="onSubmit($event)">
+      <app-form label="Titulo da nota" placeholder="Digite aqui..."
+      [formGroup]="reportForm" (valueChange)="title = $event"></app-form>
+      <app-default-report-ocorrency [formGroup]="reportForm" (filesChange)="onFilesChange($event)"></app-default-report-ocorrency>
 
-
-
-
+      <button type="submit">Enviar</button>
     </form>
   </section>
-    <section class="input-section">
-      <textarea type="text" [formControl]="textInput"></textarea>
-  </section>
 
+  <section class="input-section">
+    <textarea type="text" [formGroup]="reportForm" [value]="description" (input)="description = $any($event.target).value"></textarea>
+  </section>
 </main>

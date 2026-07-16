@@ -10,19 +10,22 @@
   height: 50px;
   width:100%;
   white-space: nowrap;      /* Proíbe o texto de quebrar para a linha de baixo */
+  border-bottom: 2px solid rgba(0, 0, 0, 0.397);
   .input-content{
     width: 100%;
     border-radius: 8px;
     display:flex;
     height: 100%;
 
+
     input{
       border: none;
       width: 100%;
-      color:white;
+      color:rgb(0, 0, 0);
       background-color: transparent;
       outline: none;
       text-align: end;
+
 
 
     }
